@@ -4,7 +4,8 @@
 
 ---
 
-![📸 **SUGGESTED IMAGE 1:** Hero image - A conceptual diagram showing the difference between MLP (fixed activation functions on nodes) vs KAN (learnable activation functions on edges). You can find great diagrams from the original KAN paper or create a simple side-by-side comparison.]
+![MLP vs KAN Architecture Comparison](kan_mlp.png)
+*Figure: Traditional MLP (left) uses fixed activation functions on nodes, while KAN (right) learns activation functions on edges.*
 
 ---
 
@@ -48,7 +49,6 @@ In a KAN:
 Output = φ1(x1) + φ2(x2) + ... (where each φ is learned)
 ```
 
-![📸 **SUGGESTED IMAGE 2:** Visual comparison showing a single MLP neuron vs a KAN node. MLP: inputs → weights → sum → ReLU → output. KAN: inputs → learnable spline functions → sum → output. This drives home the key difference.]
 
 This might seem like a subtle change, but it has profound implications:
 
@@ -68,7 +68,7 @@ This is exactly what KANs exploit. Instead of approximating complex functions wi
 
 Think of it like this: traditional neural networks try to carve the decision space with flat planes and then stack them. KANs use flexible curves right from the start.
 
-![📸 **SUGGESTED IMAGE 3:** A visual showing a spline curve fitting some data points smoothly. Caption: "B-splines can flexibly approximate any 1D function by adjusting control points." You can generate this with matplotlib easily.]
+
 
 ---
 
@@ -133,7 +133,7 @@ A few things to notice:
 - **`grid`**: Controls the flexibility of the splines. More grid points = more flexible (but potentially overfitting).
 - **`k=3`**: Cubic splines, which are smooth and work well in practice.
 
-![📸 **SUGGESTED IMAGE 4:** Screenshot of the model architecture print output. When you initialize a KAN, it prints a nice summary.]
+
 
 ### Step 3: Training
 
@@ -164,7 +164,8 @@ for epoch in range(1, 201):
         print(f"Epoch {epoch:03d} | Loss: {running_loss/len(X_train):.4f} | Test Acc: {acc:.4f}")
 ```
 
-After 200 epochs, you should see accuracy climbing up to **96-100%** on the test set — impressive for such a tiny model!
+After 200 epochs, you should see accuracy climbing up to 
+**96.67%** on the test set — impressive for such a tiny model!
 
 ---
 
@@ -179,7 +180,8 @@ model(X_train)  # Forward pass to set data ranges
 model.plot()    # Visualize all edge functions
 ```
 
-![📸 **SUGGESTED IMAGE 5:** The actual output of `model.plot()` from your notebook. This is crucial! It shows the learned spline functions on each edge. Readers will be amazed to see what each connection is actually doing.]
+![KAN Model Learned Functions](model_plot.png)
+*Figure: Visualization of the learned spline functions on each edge. Each subplot represents a connection in the network.*
 
 Each subplot shows what a particular edge has learned. Some might be linear, others curved, and some might be nearly flat (meaning that connection isn't very important).
 
@@ -189,7 +191,8 @@ You can sharpen the visualization with:
 model.plot(beta=100)  # Increases visual contrast
 ```
 
-![📸 **SUGGESTED IMAGE 6:** The sharpened version of the plot with beta=100. Show the comparison.]
+![KAN Model Sharpened Visualization](model_beta.png)
+*Figure: Sharpened visualization with beta=100 for better contrast of the activation functions.*
 
 ### Pruning: Finding What Really Matters
 
@@ -200,7 +203,8 @@ model.prune()  # Marks weak edges
 model.plot()   # Now only strong connections are visible
 ```
 
-![📸 **SUGGESTED IMAGE 7:** The pruned network visualization. This dramatically shows which features and connections actually matter for classification.]
+![KAN Pruned Network](model_prune1.png)
+*Figure: After pruning — weak edges are identified, revealing which connections actually matter for classification.*
 
 After pruning, you might discover that not all 4 Iris features are equally important — maybe petal length and petal width dominate the decision, while sepal dimensions play a supporting role. This is the kind of insight traditional MLPs can't give you directly.
 
@@ -210,7 +214,8 @@ model(X_train)
 model.plot()  # Smaller, more interpretable network
 ```
 
-![📸 **SUGGESTED IMAGE 8:** The final pruned architecture. This is a simplified version of the original network.]
+![KAN Final Pruned Architecture](model_prune2.png)
+*Figure: The final simplified network after removing pruned edges — a more compact and interpretable model.*
 
 ---
 
@@ -322,7 +327,7 @@ The [official pykan repository](https://github.com/KindXiaoming/pykan) has exten
 
 ---
 
+**About the Author**: [Your bio here]
 
 **Tags**: #MachineLearning #DeepLearning #NeuralNetworks #KAN #Python #DataScience #ArtificialIntelligence
-
 
