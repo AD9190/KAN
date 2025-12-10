@@ -312,7 +312,7 @@ The [official pykan repository](https://github.com/KindXiaoming/pykan) has exten
 
 ---
 
-**About the Author**: [Your bio here]
+
 
 **Tags**: #MachineLearning #DeepLearning #NeuralNetworks #KAN #Python #DataScience #ArtificialIntelligence
 
