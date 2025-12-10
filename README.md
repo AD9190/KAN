@@ -306,22 +306,7 @@ The [official pykan repository](https://github.com/KindXiaoming/pykan) has exten
 5. **Hornik, K., Stinchcombe, M., & White, H.** (1989). "Multilayer feedforward networks are universal approximators." *Neural networks*, 2(5), 359-366.
    - *Classic paper on MLP universal approximation — useful for comparing theoretical foundations with KANs.*
 
----
 
-## Summary of Suggested Images
-
-| Image # | Description | Where to Get It |
-|---------|-------------|-----------------|
-| 1 | MLP vs KAN architecture comparison | Draw yourself or use from KAN paper (Fig 1) |
-| 2 | Single neuron comparison (MLP vs KAN) | Create a simple diagram |
-| 3 | Spline curve fitting example | Generate with matplotlib |
-| 4 | KAN model initialization output | Screenshot from notebook |
-| 5 | `model.plot()` output | Screenshot from notebook (crucial!) |
-| 6 | `model.plot(beta=100)` sharpened version | Screenshot from notebook |
-| 7 | Pruned network visualization | Screenshot from notebook |
-| 8 | Final pruned architecture | Screenshot from notebook |
-
----
 
 *If you found this helpful, give it a 👏 and follow for more deep dives into cutting-edge ML research!*
 
